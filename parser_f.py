@@ -6,7 +6,6 @@ from data import db_session
 import json
 
 
-
 def get_coords_from_address():
     coord_list = []
 
@@ -32,7 +31,6 @@ def get_coords_from_address():
 
 
 get_coords_from_address()
-
 
 
 def parse_hospitals(area):
