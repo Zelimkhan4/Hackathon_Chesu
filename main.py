@@ -1,19 +1,10 @@
-import json
-import os
 import requests
-import bs4
-import flask_login
 from flask import Flask, render_template, url_for, redirect
 from forms.register import RegisterForm
 from forms.login import LoginForm
 from data import db_session
 from data.User import User
-from flask import session
 from flask_login import LoginManager, login_user, logout_user, login_required
-import schedule
-from flask import request
-from PIL import Image
-from io import BytesIO
 from forms.order import OrderForm
 from data.Estate import Estate
 
@@ -121,6 +112,12 @@ def register():
         sess.commit()
         return redirect("/")
     return render_template("register.html", form=form)
+
+
+@app.route("/3d_sample")
+def around_view():
+    link = None
+    return render_template("around_view.html", link=link)
 
 
 if __name__ == "__main__":

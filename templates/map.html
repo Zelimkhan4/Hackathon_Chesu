@@ -28,7 +28,7 @@ function init() {
             },
             properties: {
                 iconContent: '{{item[0]}}',
-                balloonContent: "{{item[3]}}",
+                balloonContent: "{{item[3]}}<br><a href="//3d_sample">Виртуальный тур</a>>",
             }
         }, {
             preset: 'islands#blackStretchyIcon',
@@ -47,6 +47,8 @@ function init() {
 
 {% endblock %}
 {% block content %}
-<div id="map"></div>
+
+<div id="map">
+</div>
 
 {% endblock %}
