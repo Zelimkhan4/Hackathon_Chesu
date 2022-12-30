@@ -1,5 +1,5 @@
 import json
-
+import os
 import requests
 import bs4
 import flask_login
@@ -14,33 +14,63 @@ import schedule
 from flask import request
 from PIL import Image
 from io import BytesIO
+from forms.order import OrderForm
+from data.Estate import Estate
+
+from parser_f import parse_news, parse_hospitals
 
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "Hackathon_Chesu"
 login_manager = LoginManager(app)
 login_manager.init_app(app)
-parsed_data = []
-current_location = "50,50"
-current_size = "650,450"
+data_cache = []
 
 
-def parse_data():
-    global parsed_data
-    res = requests.get("https://chechnyatoday.com/content").text
-    soup = bs4.BeautifulSoup(res, features="lxml")
-    for div in soup.findAll("div", class_="row archive-item"):
-        desc = div.find("a").text.strip()
-        image_link = div.find("img")["src"].strip()
-        parsed_data.append([desc, image_link])
+def get_coords_from_address(data):
+    global data_cache
+    if not data_cache:
+        if data:
+            for est in data:
+                base_url = "http://geocode-maps.yandex.ru/1.x/"
+                params = {
+                    "apikey": "d0994865-bed2-439d-a391-b70eab2cabeb",
+                    "geocode": est.address,
+                    "format": "json",
+                    "encoding": "UTF-8"
+                 }
+                req = requests.get(base_url, params=params)
+                json_response = req.json()
+                if json_response["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"] != "0":
+                    toponym = json_response["response"]["GeoObjectCollection"][
+                        "featureMember"][0]["GeoObject"]
+                    toponym_coordinates = list(map(float, toponym["Point"]["pos"].split()))[::-1]
+
+                    if not est.about is None:
+                        r = est.about.strip()
+                        data_cache.append([est.name.strip(), *toponym_coordinates, r.replace("\n", "")[:161]])
+                    else:
+                        data_cache.append([est.name.strip(), *toponym_coordinates, None])
 
 
-@app.route("/geodata")
-def trans_tracker():
-    res = requests.get(f"https://static-maps.yandex.ru/1.x/?ll={current_location}&z=12&l=map,sat&size={current_size}")
-    image = Image.open(BytesIO(res.content))
-    image.save("./static/images/image.png")
-    return render_template("geodata.html", image="./static/images/image.png")
+@app.route("/map")
+def map_():
+
+    db_sess = db_session.create_session()
+    get_coords_from_address(db_sess.query(Estate).all())
+    print(data_cache)
+    return render_template("map.html", data=data_cache)
+
+
+@app.route("/hospitals", methods=["POST", "GET"])
+def hospitals():
+    db_sess = db_session.create_session()
+    hosp = parse_hospitals("groznyiy")
+    form = OrderForm()
+    if form.validate_on_submit():
+        if db_sess.query(User).filter(User.email == form.email.data).first():
+            return render_template("/", message="Услуга успешно заказана")
+    return render_template("order.html", form=form)
 
 
 @login_manager.user_loader
@@ -57,8 +87,8 @@ def logout():
 
 @app.route("/")
 def index():
-    global parsed_data
-    return render_template("main.html", data=parsed_data)
+    data = parse_news()
+    return render_template("map.html", data=data)
 
 
 @app.route("/login", methods=["POST", "GET"])
@@ -94,7 +124,5 @@ def register():
 
 
 if __name__ == "__main__":
-    parse_data()
     db_session.global_init("db/database.sqlite")
-    schedule.every(1).hours.do(lambda: parse_data())
     app.run(host="0.0.0.0", debug=True)

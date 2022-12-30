@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content%}
+<div style="width: 400px">
+<h1>Город Грозный</h1>
+{% for elem in data %}
+<a href="/"><p>
+    <button class="btn btn-primary", style="" , type="button">
+    {{elem}}
+    </button>
+</p></a>
+{%endfor%}
+{%endblock%}

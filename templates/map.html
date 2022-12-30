@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block h %}
+
+	<style>
+        html, body, #map {
+            width: 100%; height: 100%; padding: 0; margin: 0;
+        }
+
+    </style>
+    <script>
+ymaps.ready(init);
+
+function init() {
+    var myMap = new ymaps.Map("map", {
+            center: [43.320539, 45.692075],
+            zoom: 10,
+        }, {
+            searchControlProvider: 'yandex#search',
+        }),
+
+
+    {% for item in data %}
+        myGeoObject = new ymaps.GeoObject({
+            geometry: {
+                type: "Point",
+                coordinates: [{{item[1]}}, {{item[2]}}],
+
+            },
+            properties: {
+                iconContent: '{{item[0]}}',
+                balloonContent: "{{item[3]}}",
+            }
+        }, {
+            preset: 'islands#blackStretchyIcon',
+            draggable: false,
+        });
+
+
+
+    myMap.geoObjects
+        .add(myGeoObject);
+    {% endfor %}
+};
+
+</script>
+
+
+{% endblock %}
+{% block content %}
+<div id="map"></div>
+
+{% endblock %}
