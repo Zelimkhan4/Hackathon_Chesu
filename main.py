@@ -25,14 +25,15 @@ def get_coords_from_address(data):
             for est in data:
                 base_url = "http://geocode-maps.yandex.ru/1.x/"
                 params = {
-                    "apikey": "d0994865-bed2-439d-a391-b70eab2cabeb",
+                    "apikey": "9425a070-3065-43f1-be4f-8cfea45435ce",
                     "geocode": est.address,
-                    "format": "json",
-                    "encoding": "UTF-8"
+                    "format": "json"
                  }
                 req = requests.get(base_url, params=params)
                 json_response = req.json()
-                if json_response["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"] != "0":
+                print(json_response)
+
+                if req.status_code in (200, 300) and json_response["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"] != "0":
                     toponym = json_response["response"]["GeoObjectCollection"][
                         "featureMember"][0]["GeoObject"]
                     toponym_coordinates = list(map(float, toponym["Point"]["pos"].split()))[::-1]
@@ -46,10 +47,10 @@ def get_coords_from_address(data):
 
 @app.route("/map")
 def map_():
-
+    global data_cache
     db_sess = db_session.create_session()
     get_coords_from_address(db_sess.query(Estate).all())
-    print(data_cache)
+
     return render_template("map.html", data=data_cache)
 
 
@@ -88,7 +89,7 @@ def login():
     if form.validate_on_submit():
         sess = db_session.create_session()
         user = sess.query(User).filter(User.email == form.email.data).first()
-        if user.check_password(form.password.data):
+        if user and user.check_password(form.password.data):
             login_user(user)
             return redirect("/")
         return render_template("login.html", form=form, message="Пользователь с такими данными не найден")

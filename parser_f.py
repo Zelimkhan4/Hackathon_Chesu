@@ -6,19 +6,19 @@ from data import db_session
 import json
 
 
-def get_coords_from_address():
+def get_coords_from_address(address):
     coord_list = []
 
     base_url = "http://geocode-maps.yandex.ru/1.x/"
     params = {
-        "apikey": "d0994865-bed2-439d-a391-b70eab2cabeb",
-        "geocode": "sdfsfdfsf",
+        "apikey": "b23cb2f0-cebf-4bd8-94c1-0500fb833bac",
+        "geocode": address,
         "format": "json",
         "encoding": "UTF - 8"
      }
     req = requests.get(base_url, params=params)
     json_response = req.json()
-    print(json_response["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"])
+    print(json_response)
     if json_response["response"]["GeoObjectCollection"]["metaDataProperty"]["GeocoderResponseMetaData"]["found"] != "0":
 
         with open("res.json", "w", encoding="UTF-8") as f:
@@ -27,10 +27,6 @@ def get_coords_from_address():
         toponym = json_response["response"]["GeoObjectCollection"][
             "featureMember"][0]["GeoObject"]
         toponym_coordinates = toponym["Point"]["pos"]
-        print(toponym_coordinates)
-
-
-get_coords_from_address()
 
 
 def parse_hospitals(area):
