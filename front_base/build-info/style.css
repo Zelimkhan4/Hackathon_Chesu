@@ -1,0 +1,581 @@
+@import url('https://fonts.cdnfonts.com/css/tt-norms-pro');
+header{
+    width: 100%;
+    height: 850px;
+    background: linear-gradient( rgba(21, 20, 20, 0.9), rgba(0, 0, 0, 0.7) ),url("/img/g2.jpg");
+    background-size: cover;
+
+}
+.navBar{
+    display: flex;
+}
+.logo{
+    width: 100px;
+    height: 100px;
+    margin-left: 220px;
+    margin-top: 20px;
+    text-decoration: none;
+}
+.nav-spisok{
+    list-style-type: none;
+    display: flex;
+    color: white;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+.navElem{
+    margin-right: 56px;
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase; 
+    color: #FFFFFF;
+    
+}
+
+.hosi:hover{
+    color :#118BDD;
+}
+.navElem a {
+    text-decoration: none;
+    color : white;
+}
+.navElemFirst a{
+    text-decoration: none;
+    color : #118BDD;
+}
+.mail-phone{
+    margin-top: 22px;
+    margin-left: 32px;
+}
+.phone{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+.mail{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8C94A6;
+    margin-top: -7px;
+}
+.name{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 150%;
+    color: #FFFFFF;
+    width: 1400px;
+
+}
+/* .desc{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 150%;
+    color: #CFCFCF;
+    width: 797px;
+
+} */
+.middleDiv{
+    display: flex;
+}
+.middle-words{
+    margin-top: 200px;
+    margin-left: 232px;
+}
+.slideNav{
+    list-style-type: none;
+    margin-left: 100px;
+    margin-top: 220px;
+}
+.slideNav a{
+    text-decoration: none;
+    color: #7B7B7B;
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: #7B7B7B;
+    
+}
+.slideEl{
+    margin-top: 15px;
+}
+.slideNav a:hover{
+    color :#118BDD;
+}
+
+
+.upperUl{
+    color : white;
+    display: flex;
+    list-style-type: none;
+    margin-left: 190px;
+    margin-top: 180px;
+}
+.LiDiv{
+    display: flex;
+}
+.liPicDiv{
+    margin-right: 15px;
+}
+.upperLi{
+    margin-right: 400px;
+}
+.liP{
+    margin-top: -1px;
+    margin-top: 5px;
+}
+
+.lowwerUl{
+    list-style-type: none;
+    display: flex;
+    margin-left: 190px;
+}
+.LLiDiv{
+    width: 290px;
+}
+.lowwerLi{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #C9C9C9;
+    margin-right: 120px;
+}
+.hfooter{
+    width: 100%;
+}
+
+.upFootTable{
+    color: #FFFFFF;
+    font-family: 'TT Norms';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 150%;
+    margin-left: 230px;
+    margin-top: 150px;
+}
+.underTd{
+    width: 290px;
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #C9C9C9;
+    /* background-color: red; */
+    padding-right: 220px;
+}
+.twelwpic{
+    /* height: 100px;
+    width: 100%;
+    background-color: rgb(171, 167, 167); */
+}
+.secondWords{
+    display: flex;
+    margin-bottom: 50px;
+}
+.zeroTwo{
+    font-family: 'TT Norms Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 20px;
+line-height: 150%;
+color: #118BDD;
+margin-top: 130px;
+margin-right: 27px;
+margin-left: 270px;
+}
+.napravText{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 150%;
+    color: #000000;
+    margin-top: 100px;
+
+}
+
+
+.picBlock{
+    height: 500px;
+    width: 620px;
+    background-color: #a29191;
+    position: relative;
+    margin-right: 20px;
+}
+.fotka1{
+    height: 420px;
+    width: 609px;
+}
+.fotka2{
+    height: 420px;
+    width: 609px;
+}
+.fotka3{
+    height: 432px;
+    width: 609px;
+    background-size: cover;
+    margin-top: -5px;
+}
+.fotka4{
+    height: 420px;
+    width: 609px;
+}
+.fotka5{
+    height: 420px;
+    width: 609px;
+}
+.fotka6{
+    height: 420px;
+    width: 609px;
+}
+.fotka7{
+    height: 420px;
+    width: 609px;
+}
+.fotka8{
+    height: 420px;
+    width: 609px;
+}
+.fotka9{
+    height: 420px;
+    width: 609px;
+}
+
+.lowerBlue{
+    width: 609px;
+    height: 80px;
+    background-color: #118BDD;
+    display: flex;
+    position:absolute;
+    bottom: 0;
+    right: 0;
+}
+.siniy{
+    width: 540px;
+    height: 80px;
+    background-color: #118BDD;
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 150%;
+    color: #FFFFFF;
+    
+}
+.sky{
+    height: 80px;
+    width: 80px;
+    background-color: #32A1DF;
+    border: none;
+    text-align: center;
+    
+}
+.firstthree{
+    display: flex;
+    margin-bottom: 100px;
+}
+.slova{
+    margin-left: 30px;
+    margin-top: 25px;
+}
+.strelka{
+    margin-top: 30px;
+}
+
+
+.mapsec{
+    width: 100%;
+    background-color: #f4f4e5;
+    height: 900px;
+}
+.karta{
+    margin-left: 300px;
+    margin-top: 100px;
+    margin-bottom: 200px;
+}
+
+
+.newsec{
+position: absolute;
+/* margin-bottom: 120px; */
+width: 100%;
+height: 700px;
+background-color: rgb(255, 255, 255);
+}
+.newswrapper{
+    width: 1380px;
+    height: 619px;
+    margin-left: 245px;
+    /* background-color: rgb(255, 255, 255); */
+}
+.newsnav{
+    display: flex;
+}
+.krug-bar{
+    width: 11px;
+    height: 11px;
+    margin-left: 15px;
+    margin-top: 29px;
+}
+.zerofour{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    color: #118BDD;
+    margin-left: 19px;
+}
+.newswords{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 150%;
+    color: #000000;
+    margin-top: -3px;
+    margin-left: 45px;
+}
+.vsenews{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.1em;
+    color: #000000;
+    text-decoration: none;
+    margin-left: 919px;
+    margin-top: 25px;
+}
+.twonews{
+    width: 1380px;
+    height: 500px;
+    display: flex;
+}
+.pernew{
+    width: 680px;
+    height: 500px;
+    background-color: blue;
+}
+.secnew{
+    width: 680px;
+    height: 500px;
+    background-color: blue;
+    margin-left: 20px;  
+}
+.perfot{
+    width: 680px;
+    height: 420px;
+}
+.perNewTextes{
+    display: flex;
+}
+.perinfo{
+    height: 257px;
+    width: 500px;
+    background-color: #FAFAFA;;
+    margin-top: -181px;
+}
+.perdate{
+    width: 180px;
+    height: 80px;
+    background-color:#118BDD;
+    margin-top: -4px;
+}
+.siniwords{
+    font-family: 'TT Norms Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 22px;
+line-height: 150%;
+color: #118BDD;
+margin-left: 30px;
+margin-top: 30px;
+}
+.beliwords{
+    font-family: 'TT Norms Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 150%;
+color: #434343;
+margin-left: 30px;
+margin-top: 20px;
+}
+.perdate{
+    font-family: 'TT Norms Pro';
+font-style: normal;
+font-weight: 700;
+font-size: 16px;
+line-height: 150%;
+text-align: center;
+color: #FFFFFF;
+}
+.datka{
+    margin-top: 28px;
+}
+
+
+.predsec{
+    width: 100%;
+    height: 665px;
+    background : url("/img/111.jpeg");
+    background-size: cover;
+    margin-top: 900px;
+}
+.belinfodiv{
+    width: 797px;
+    height: 522px;
+    background-color: #ffffff;
+    margin-left: 240px;
+    margin-top: 72px;
+
+}
+.krug-bare{
+    margin-left: 50px;
+    margin-top: 79px;
+    width: 11px;
+    height: 11px;
+}
+.zerofoure{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    color: #118BDD;
+    margin-left: 19px;
+    margin-top: 70px;
+}
+.okomp{
+    font-family: 'TT Norms Pro';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 46px;
+    line-height: 150%;
+    color: #000000;
+    margin-left: 30px;
+}
+.upnik{
+    display: flex;
+}
+.tediv{
+    width: 697px;
+    margin-left: 50px;
+    margin-top: -40px;
+}
+.texter{
+    font-family: 'TT Norms Pro';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 180%;
+color: #434343;
+}
+.more{
+    text-decoration: none;
+    font-family: 'TT Norms Pro';
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 180%;
+color: #000000;
+margin-left: 50px;
+}
+.mapnav{
+    margin-left: 300px;
+    display: flex;
+    margin-top: 120px;
+}
+footer{
+    height: 410px;
+    width: 100%;
+    background-color: #0C0E16;
+}
+.logo1{
+    width: 100px;
+    height: 100px;
+    margin-left: 220px;
+    margin-top: 50px;
+    text-decoration: none;
+}
+.razdeli{
+    list-style-type: none;
+    margin-left: 250px;
+    margin-top: 50px;
+    font-family: "TT Norms Pro";
+    margin-right: 120px;
+}
+.razdeli li{
+    margin-bottom: 10px;
+}
+.razella{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+.verhlay{
+    display: flex;
+}
+ul{
+    list-style-type: none;
+}
+.rekvizi{
+    color: white;
+    font-family: "TT Norms Pro";
+    margin-top: 50px;
+    margin-right: 120px;
+}
+.rekvizi li{
+    margin-bottom: 10px;
+}
+.tel{
+    color : white;
+    font-family: "TT Norms Pro";
+    margin-top: 50px;
+}
+.tel li{
+    margin-bottom: 10px;
+}
+.razels{
+    color : #606269;
+    font-size: 12px;
+}
+.unt{
+    display: flex;
+    color: #606269;
+    margin-left: 220px;
+    margin-top: 20px;
+    font-family: "TT Norms Pro";
+    font-size: 12px;
+}
+.slovko1{
+    margin-right: 320px;
+}
+.slovko2{
+    margin-right: 155px;
+}
+.slovko3{
+    margin-right: 225px;
+}
+
